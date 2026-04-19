@@ -140,7 +140,11 @@ export function LinksTab() {
   const [emoji, setEmoji] = useState("");
 
   const sensors = useSensors(
-    useSensor(PointerSensor, { activationDistance: 5 }),
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5,
+      },
+    }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
 
